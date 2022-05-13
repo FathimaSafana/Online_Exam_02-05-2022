@@ -1,0 +1,84 @@
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) DEFAULT NULL,
+  `user_name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `user_type` VARCHAR(45) NOT NULL,
+  `contact_no` VARCHAR(45) DEFAULT NULL,
+  `city` VARCHAR(45) DEFAULT NULL,
+  `address` VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=INNODB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='		';
+
+DROP TABLE IF EXISTS `questions`;
+
+CREATE TABLE `questions` (
+  `question_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `course_name` VARCHAR(45) NOT NULL,
+  `question` VARCHAR(255) NOT NULL,
+  `opt1` VARCHAR(85) NOT NULL,
+  `opt2` VARCHAR(85) NOT NULL,
+  `opt3` VARCHAR(85) NOT NULL,
+  `opt4` VARCHAR(85) NOT NULL,
+  `correct` VARCHAR(85) NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=INNODB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `answers`;
+
+CREATE TABLE `answers` (
+  `answer_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `exam_id` INT(11) NOT NULL,
+  `question` VARCHAR(45) NOT NULL,
+  `answer` VARCHAR(45) NOT NULL,
+  `correct_answer` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`answer_id`)
+) ENGINE=INNODB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `courses`;
+
+CREATE TABLE `courses` (
+  `course_name` VARCHAR(25) NOT NULL,
+  `total_marks` INT(11) NOT NULL,
+  `time` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`course_name`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `exams`;
+
+CREATE TABLE `exams` (
+  `exam_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `std_id` VARCHAR(45) NOT NULL,
+  `course_name` VARCHAR(45) NOT NULL,
+  `total_marks` VARCHAR(45) NOT NULL,
+  `obt_marks` VARCHAR(45) DEFAULT NULL,
+  `date` VARCHAR(45) NOT NULL,
+  `start_time` VARCHAR(45) NOT NULL,
+  `end_time` VARCHAR(45) DEFAULT NULL,
+  `exam_time` VARCHAR(45) DEFAULT NULL,
+  `status` VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`exam_id`)
+) ENGINE=INNODB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `test`;
+
+CREATE TABLE `test` (
+  `name` VARCHAR(25) NOT NULL,
+  `age` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+
+
